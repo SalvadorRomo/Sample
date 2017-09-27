@@ -1,0 +1,70 @@
+<!-- INICIO DEL CONTROLADOR -->
+<div style="height: 100%" ng-controller='dashboardVisorPageController' ng-init="Constructor('<%= ModoApertura %>','<%= HashDashboard %>')" ng-cloak>
+
+
+
+
+	<nav class="nav"></nav>
+	<!-- INICIO container-fluid -->
+    <div class="container-fluid" style="height: 100%; background-color: gray; overflow:hidden">
+
+    	<!--INICIO ROW -->
+		<div class="row" style="height: 100%">
+
+		<div  class="col-md-12">
+			<label for="name">Name:</label>
+			<span id="name" name="name">{{dashboard.nombre}}</span>
+			<label for="description">Description:</label>
+			<span id="description" name="description">{{dashboard.descripcion}}</span>
+		</div>
+
+			<!-- INICIO CANVAS -->
+			<div  class="col-md-12 container panel panel-default canvas no-padding" id="container" 
+			style="overflow-y:scroll; overflow-x: scroll;min-height: 100%; padding-left: 0px; padding-right: 0px; margin-bottom:0px;"
+			>
+			</div><!-- FIN CANVAS -->
+
+		</div> <!--FIN ROW -->
+	</div><!-- FIN container-fluid -->
+
+
+
+
+
+
+
+
+<!-- INICIO VENTANAS EMERGENTES Y DIALOGOS -->
+
+	<!-- DIALOGO PARA INGRESAR NOMBRE Y DESCRIPCIÓN AL DASHBOARD-->
+	<div id="DashboardEditorView_Dialog_Setup" title="Configuración del dashboard" >
+		<form>
+		  	<fieldset>
+
+		      <label for="DashboardEditorView_Dialog_Setup_Name">Name:</label>
+		      <br>
+		      <input type="text" name="DashboardEditorView_Dialog_Setup_Name" id="DashboardEditorView_Dialog_Setup_Name" value="Dashboard" class="text ui-widget-content ui-corner-all">
+
+		      <br>
+
+		      <label for="DashboardEditorView_Dialog_Setup_Description">Description:</label>
+		      <br>
+		      <textarea  rows="4" cols="20" name="DashboardEditorView_Dialog_Setup_Description" id="DashboardEditorView_Dialog_Setup_Description" value="" class="textarea ui-widget-content ui-corner-all"></textarea>
+
+		      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+		      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+
+		    </fieldset>
+		</form>
+	</div>
+
+
+
+<!-- FIN VENTANAS EMERGENTES Y DIALOGOS -->
+
+
+
+
+
+
+</div><!-- FIN DEL CONTOLADOR-->

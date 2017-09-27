@@ -1,0 +1,77 @@
+<div ng-controller="imagesPageController" class="ui container">
+
+<div class="ui segment">
+	<h2 class="ui header">
+	   <i class="desktop icon"></i>
+	  <div class="content">
+	    Galería
+	  </div>
+	</h2>
+</div>
+<div class="ui grid">
+	<div class="two wide column">
+		<div class="ui ">
+			<%- partial('./menu/menu.ejs') %>    
+		</div>
+	</div>
+
+<div class="fourteen wide column">	
+	<div class="ui segment" ng-model="empresa">
+		<div class="ui right aligned grid">
+		 <div class="left floated right aligned 	 wide column">
+				<h5  class="ui header">{{empresa.owner.username | uppercase }}</h5>		 	     
+		 </div>
+		  <div class="right floated left aligned two wide column">
+		     <!-- <button class="circular ui gray icon button" id="call-modals" ng-click="agregar()">
+			  <i class="plus icon"></i>
+			</button>	 -->
+		  </div>
+		</div>	
+		<br>
+		<br>
+			<div class="ui small images" ng-repeat="promo in me.owner.promotions">
+				<a class="item" ng-click ="showModal(promo)">
+				 <img  class ="ui bordered image" ng-src="{{promo.url_img_target}}">
+				 </a>
+			</div>			
+		<br>
+		<br>		
+		  </div>
+	</div>
+</div>
+	
+	<!-- Modal Deatils-->		
+	<div id="detallePromocion" class="ui modal" >
+			<i class="close icon"></i>
+			<div class="header" ng-model="name">
+				{{name | uppercase}}
+			</div>
+			<div class="image content" >
+			
+			<div class ="ui small  bordered image">
+			<img  ng-model="image"  ng-src="{{image}}"/>
+			</div>
+
+				<div class="description" >
+						<div class="ui header">
+							Detalles
+						</div >
+						<br>
+						<label> Descripcion</label>
+						<p ng-model="details" >{{details}}</p>	
+						<label> Fecha de inicio</label>		
+						<p ng-model="startDate" >{{startDate | date:'MM/dd/yyyy'}}</p>		
+						<label> Fecha de vencimiento</label>		
+						<p ng-model="endDate" >{{endDate | date:'MM/dd/yyyy'}}</p>																
+				</div>
+			</div>
+			<div class="actions">
+				<div class="ui button">Cancel</div>
+				<div class="ui button">OK</div>
+			</div>
+		</div>
+
+
+		<!-- Modal Form-->		
+		
+</div>

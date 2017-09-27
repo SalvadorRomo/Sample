@@ -1,0 +1,24 @@
+-iniciamos server 
+-iniciamos cliente  
+- en un cliemte, computar la matriz 
+	-va al servidor, obtengo el numero clientes(incluyendome)
+	-divide el numero de filas entre el numero cliente 
+	-establecer indeces que le van a tocar a cada cliente. 
+	dice: 0-4 cliente 1, del 5 a al 9 cliente 2 
+	manda matrices a clientes 
+  obtengo listas de cliente 
+	itero sobre ella  
+	mando matrices  
+	para no mandar la misma matriz repetida   
+	el mismo indice que itera los clientes, va a iterar las matrices ()
+
+
+funciones server  
+     int obtenerListaDeClienets() 
+     void ReciboMatriz(Lista de Matrices)
+     void EsparcerMatricesClientes(Cliente )
+     int ReciboYJunto();
+
+funciones clintes
+   calcur()       
+       

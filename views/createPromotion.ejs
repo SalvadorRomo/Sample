@@ -1,0 +1,174 @@
+<div ng-controller="promotionController" class="ui container" ng-init="constructor()">
+
+		<!-- INICIO Modal Form-->		
+		<div class="" id ="modal1">		  
+		  <div class="header">
+		  Agrega tu promocion
+
+		  </div>
+		  	<br>	
+		  	<div class="ui container ">
+		  	<!--div class="scrolling content" -->
+			  	<form class="ui form"  name ="form" ng-model="CreatePromotion"  >
+
+			  	<div class="field">
+				  	<label>Datos generales</label>
+				  	<div class="">
+						  	<div class="field">
+							    <label>Nombre</label>
+							    <input ng-model="CreatePromotion.name" type="text" name="first-name" placeholder="" required>
+							</div>
+
+							<div class="field">
+							    <label>Descripcion</label>
+			    				<textarea ng-model="CreatePromotion.description" rows="2" required></textarea>
+							</div>
+
+							<div class="field">
+								<label>Medio publicitario</label>
+								<select id="media" name="media" class="ui dropdown" 
+								ng-model="CreatePromotion.media" 
+								ng-options="x.name |  uppercase   for x in config.mediaArray" required>
+								</select>
+							</div>
+
+							<div class="field">
+								<label>Categorias que describen la promoción</label>
+								<select id="media" name="media" class="ui fluid search dropdown" multiple="" 
+								ng-model="CreatePromotion.categories" 
+								ng-options="x.name |  uppercase   for x in config.categories" required>
+								</select>
+							</div>
+
+			  		</div>
+			  	</div>
+
+			  	<br><br>
+
+			  	<div class="field">
+			  		<label>Contenido</label>
+			  		<div class="ancho_3_elementos" style="text-align: center;">
+				  		<div class="field" style="border: none;">
+					    	<label>Imagen</label>
+					    	<div class="image-upload">
+							    <label for="file_input_imagen">
+							        <img src="/images/upload.png"/>
+							    </label>
+							    <input  id="file_input_imagen"  type="file" ngf-select ng-model="CreatePromotion.image"  name="file" required>
+							</div>
+					  	</div>
+
+					 	<div class="field" style="border: none;">
+					    	<label>Asset</label>
+					    	<div class="image-upload">
+							    <label for="file_input_asset">
+							        <img src="/images/upload.png"/>
+							    </label>
+							    <input  id="file_input_asset" type="file" ngf-select ng-model="CreatePromotion.asset"  name="file2"  required>
+							</div>					    	
+					   </div>
+
+					   	<div class="field" style="border: none;">
+					  		<label>Video</label>
+					  		<div class="image-upload">
+							    <label for="file_input_video">
+							        <img src="/images/upload.png"/>
+							    </label>
+							    <input id="file_input_video" type="file" ngf-select ng-model="CreatePromotion.video"  name="file2" >
+							</div>
+					  		
+					  	</div>
+			  		</div>
+			  	</div>
+
+			  	<br><br>
+				  
+
+				   <div class="field">
+				   		<label>Contacto y enlaces externos</label>
+					
+						<div class=" field " style="">
+							  <label>Locación principal donde su promoción sera enfocada</label>
+						      <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+							    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+							    </ui-gmap-marker>
+							  </ui-gmap-google-map >
+						</div>
+
+
+						<div class="ancho_2_elementos">
+							<div class=" field ui labeled icon input" >
+							      <div class="ui label" style="width: 49% ">facebook.com/</div>
+							      <input type="text" style="width: 49% " placeholder="promoar"  ng-model="CreatePromotion.facebook">
+							</div>
+
+					   		<div class=" field ui labeled icon input" >
+							      <div class="ui label" style="width: 49% " >twitter.com/</div>
+							      <input type="text" style="width: 49% " placeholder="Leonardo_Oliva"  ng-model="CreatePromotion.twitter">
+							</div>
+						</div>
+
+						<div class="ancho_2_elementos">
+							<div class=" field ui labeled icon input" >
+							      <div class="ui label" style="width: 49% ">youtube.com/watch?v=</div>
+							      <input type="text" style="width: 49% " placeholder="DPAL7DHwN9Q"  ng-model="CreatePromotion.youtube">
+							</div>
+
+							<div class=" field ui labeled icon input">
+							      <div class="ui label" style="width: 49% ">instagram.com/</div>
+							      <input type="text" style="width: 49% " placeholder="lolivamonjaras"  ng-model="CreatePromotion.instagram">
+							</div>
+						</div>
+							
+
+						<div class=" field ui labeled icon input">
+						      <div class="ui label">http://</div>
+						      <input type="text" placeholder="www.projec.lom.dynu.com"  ng-model="CreatePromotion.browser">
+						</div>
+
+				   </div>
+				  
+				   <br><br>
+
+				  <div class="field">
+				  	<label>Vigencia</label>
+
+				  		<div class="ancho_2_elementos" >
+					  		<div class="field" ng-init="CreatePromotion.start_date = now();">
+							    <label>Fecha de Inicio</label>
+							    <input ng-model="CreatePromotion.start_date" type="date" >
+							    <!--p ng-bind="CreatePromotion.start_date"></p-->
+							</div>
+
+							<div class="field" ng-init="CreatePromotion.end_date = now();">
+							    <label>Fecha de vencimiento</label>
+							    <input  ng-model="CreatePromotion.end_date"  type="date" required>
+							</div>	
+					  	</div>
+				  </div>
+
+				<br><br>
+
+			  <div class="right floated left aligned two wide column">
+
+			  	<button  class="ui labeled icon primary button"  ng-disabled="!form.$valid || submited" ng-click="send(CreatePromotion)"  type="submit">
+			  	<i class="add circle icon"></i>Crear
+			  	</button>
+
+			  	<a  href="/promotion" class="ui labeled icon gray button" >
+			  		<i class="remove circle icon"></i>
+			  		Cancelar
+			  		
+				</a>
+			  </div>
+				  
+				  
+				  <br>
+				  <br>
+					<!-- <button class="ui labeled icon button" ng-disabled="!submited"   id="btn-modal-1">Siguiente<i class="arrow sign right icon"></i></button> -->
+				</form>
+			</div>
+		</div>
+		<!-- FIN Modal Form-->	
+
+</div>

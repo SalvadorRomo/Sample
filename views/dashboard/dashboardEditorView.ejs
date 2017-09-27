@@ -1,0 +1,194 @@
+<div style="height: 100%" id='dashboardEditorPageController' ng-controller='dashboardEditorPageController' ng-init="Constructor('<%= ModoApertura %>','<%= HashDashboard %>')" ng-cloak>
+
+
+	<nav class="nav"></nav>
+	<!-- INICIO container-fluid -->
+    <div class="container-fluid" style="background-color: gray;height: 100%">
+
+    	<!--INICIO ROW -->
+		<div class="row" style="height: 100%">
+
+			<!-- INICIO BARRA LATERAL IZQ -->
+			<div class="col-sm-12 col-md-3 " style="overflow:scroll;height: 100%">
+
+				<!-- INICIO ACCIONES PANEL -->
+				<div id="caracteristicas" style="overflow:none;" class="col-sm-6 col-md-12 panel panel-default">
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+						<span>Options</span>
+					</div>
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+							<li>
+								<button id="Save" class="btn btn-full-width" ng-click="EventoClick_GuardarPanel()" >
+									<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+  									<span>Guardar</span>
+  								</button>
+							</li>
+							<!--li>
+								<button id="Save" class="btn btn-full-width" ng-click="EventoClick_GuardarPanel()" >
+									<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+  									<span>Exit</span>
+  								</button>
+							</li-->
+							<li>
+
+								
+								<button id="regresar_" class="btn btn-full-width">
+  									<a href="http://www.projec.lom.dynu.com/dashboardmanager"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Regresar</a>
+  								</button>
+								
+
+								<!-- ng-disabled="deshabilitarBotonGuardar" -->
+								
+							</li>
+
+							<li>
+							</li> 
+						</ul>
+					</div>
+				</div><!-- FIN ACCIONES PANEL -->
+
+				<!-- INICIO INFORMACIÓN PANEL -->
+				<div id="caracteristicas" style="" class=" col-sm-12 col-md-12 panel panel-default">
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+						<span>Dashboad Properties</span>
+					</div>
+					<div class="panel-body">
+					    <ul class="nav nav-pills nav-stacked">
+
+  							<li>
+								<label for="Name">Name:</label>
+								<br>
+								<div class="input-group">
+							    	<input type="text" name="Name" id="Name" value="Dashboard" class="form-control ui-widget-content ui-corner-all" ng-model="dashboard.nombre"" placeholder="Dashboard name">
+								    <span class="input-group-btn" >
+								    	<button class="btn btn-default" type="button" title="Clear the dashboard name" ng-click="dashboard.nombre = '' ">
+								    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+								    </button>
+								    </span>
+								 </div><!-- FIN input-group -->
+						
+		      					<!--input type="text" name="Name" id="Name" value="Dashboard" class="text ui-widget-content ui-corner-all" ng-model="dashboard.nombre"-->
+							</li>
+  							<li>
+		     					<label for="Description">Description:</label>
+		     					<br>
+		     					<div class="input-group">
+							    	<input type="text" name="Description" id="Description" value="Dashboard" class="form-control ui-widget-content ui-corner-all" ng-model="dashboard.descripcion" placeholder="Dashboard description">
+								    <span class="input-group-btn">
+								    	<button class="btn btn-default" type="button" title="Clear the dashboard description" ng-click="dashboard.descripcion = '' ">
+								    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+								    	</button>
+								    </span>
+								 </div><!-- FIN input-group -->
+
+		      					<!--textarea  rows="4" cols="20" name="Description" id="Description" value="" class="textarea ui-widget-content ui-corner-all" ng-model="dashboard.descripcion"></textarea-->
+  							</li>
+  							<li>
+  								<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+  								<label for="CreateAt">Created At:</label>
+  								<span name="CreateAt" id="CreateAt">{{ dashboard.createdAt | date:'dd/MM/yyyy hh:mm a' }}</span>  		
+  							</li>
+  							<li>
+  								<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+  								<label for="UpdateAt">Updated At:</label>
+  								<span name="UpdateAt" id="UpdateAt">{{ dashboard.updatedAt | date:'dd/MM/yyyy hh:mm a' }}</span>  				
+  							</li>
+  						</ul>
+
+					</div>
+				</div><!-- FIN INFORMACIÓN PANEL -->
+
+
+				<!-- INICIO CONTROLES PANEL -->
+				<div class="col-sm-6 col-md-12 panel panel-default" style="">
+  					<div class="panel-heading">
+  						<span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+  						<span>Controls</span>
+  					</div>
+  					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+  							<li>
+								<button id="newGraphic" class="btn btn-defaul btn-full-width" ng-click="EventoClick_AgregarGrafica()">
+								<span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+									<span>Chart</span>
+								</button>
+							</li>
+  							<!--li>
+  								<button id="newTable" class="btn">
+  									<span>Table</span>
+  								</button>
+  							</li-->
+  							<li>
+  								<button id="newText" class="btn btn-full-width" ng-click="EventoClick_AgregarTexto()">
+  								<span class="glyphicon glyphicon-font" aria-hidden="true"></span>
+  									<span>Label</span>
+  								</button>
+  							</li>
+							<li>
+								<button id="newImage" class="btn btn-full-width" ng-click="EventoClick_AgregarImagen()">
+								<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+									<span>Imagen</span>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div><!-- FIN CONTROLES PANEL -->
+
+
+
+				<!-- INICIO La vista de detalle -->
+					<div ui-view='caracteristicas'></div>
+				<!-- FIN LA VISTA DE DETALLE-->
+
+
+
+			</div><!-- FIN BARRA LATERAL IZQ -->
+
+			<!-- INICIO CANVAS -->
+			<div  class="col-md-9  container panel panel-default canvas no-padding" id="container" 
+			style="overflow-y:scroll; overflow-x: scroll;min-height: 100%; padding: 0px !important; margin: 0px !important;" >
+			</div><!-- FIN CANVAS -->
+
+		</div> <!--FIN ROW -->
+	</div><!-- FIN container-fluid -->
+
+
+
+
+
+
+
+
+<!-- INICIO VENTANAS EMERGENTES Y DIALOGOS -->
+
+	<!-- DIALOGO PARA INGRESAR NOMBRE Y DESCRIPCIÓN AL DASHBOARD-->
+	<div id="DashboardEditorView_Dialog_Setup" title="Configuración del dashboard" >
+		<form>
+		  	<fieldset>
+
+		      <label for="DashboardEditorView_Dialog_Setup_Name">Name:</label>
+		      <br>
+		      <input type="text" name="DashboardEditorView_Dialog_Setup_Name" id="DashboardEditorView_Dialog_Setup_Name" value="Dashboard" class="text ui-widget-content ui-corner-all">
+
+		      <br>
+
+		      <label for="DashboardEditorView_Dialog_Setup_Description">Description:</label>
+		      <br>
+		      <textarea  rows="4" cols="20" name="DashboardEditorView_Dialog_Setup_Description" id="DashboardEditorView_Dialog_Setup_Description" value="" class="textarea ui-widget-content ui-corner-all"></textarea>
+
+		      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+		      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+
+		    </fieldset>
+		</form>
+	</div>
+
+
+
+<!-- FIN VENTANAS EMERGENTES Y DIALOGOS -->
+
+
+</div>

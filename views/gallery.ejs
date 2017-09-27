@@ -1,0 +1,70 @@
+
+
+<div ng-controller="galleryPageController" class="ui container">
+	<div class="ui segment">
+		<h2 class="ui header">
+		   <i class="camera retro icon"></i>
+		  <div class="content">
+		  ADMINISTRADOR 
+		  </div>
+		</h2>
+	</div>
+
+<div class="ui grid">
+	<div class="two wide column">
+		<div class="ui ">
+			<%- partial('./menu/menu.ejs') %>    
+		</div>
+	</div>
+
+  <div class =" fourteen wide column">
+	<div class="ui segment" ng-model="empresa">
+		<h5  class="ui header">{{empresa.owner.username | uppercase }}</h5>		 	     
+	<br>
+    <br>	
+<table class="ui very basic  fixed collapsing celled table" >
+  <thead>
+    <tr>
+	    <th>Imagen de la promocion</th>
+	     <th>Promocion asociada</th>
+	     <th>Fecha de creacion </th>
+	     <th>Fecha de vencimiento </th>     
+	     <th>Tipo</th>      
+	     <th>Estado</th>
+	     <th>Eliminar</th>        
+
+  </tr>
+  	</thead>
+  <tbody ng-repeat="promociones in empresa.owner.promotions">
+    <tr>
+      <td>
+      <div class ="ui small  bordered image">
+      	    <img  ng-src = "{{ promociones.url_img_target}}" class="ui small rounded image">   
+     	 </div>
+      		</td>
+				      <td>
+				       {{promociones.name}}
+				      </td>
+				       <td>
+				       {{promociones.start_date | date:'MM/dd/yyyy'}}
+				      </td>
+				       <td>
+				       {{promociones.end_date | date:'MM/dd/yyyy'}}
+				      </td>
+				      <td>
+				       {{promociones.id_category}}
+				      </td>
+				       <td>
+				       {{promociones.state}}
+				      </td>
+				      <td>
+				       <button  class="ui button" ng-click="deletePromo(promociones)">Eliminar</button>
+				      </td>
+	   			 </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div> 
+
+</div>

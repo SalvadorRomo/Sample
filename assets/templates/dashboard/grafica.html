@@ -1,0 +1,485 @@
+<div id="controlador_grafica" ng-controller="controlador_grafica" ng-init="Constructor()">
+	
+
+	<!-- INICIO CARACTERISTICAS PANEL -->
+	<div id="caracteristicas" style="" class=" col-sm-12 col-md-12 panel panel-default">
+		<div class="panel-heading">
+			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+			<span>Properties</span>
+		</div>
+		
+		<div class="panel-body">
+
+			<ul class="nav nav-pills nav-stacked">
+
+
+
+			<!--  -->
+			<!--  -->
+			<!--  -->
+			<!--  -->
+			<!-- INICIO TITLE -->
+
+				<h2 class="title">Title</h2>
+				
+				<li>
+	<label class="form-control"><input type="checkbox" ng-model="graphicTitleEnable">Enable</label>
+				</li>
+
+				<li>
+					<label for="graphic_title">Title:</label>
+						<br>	
+				    <div class="input-group" >
+				    	<input type="text" id="graphic_title" name="graphic_title" class="form-control" placeholder="Title" ng-model='graphicTitle' ng-disabled="!graphicTitleEnable">
+					    <span class="input-group-btn" ng-click="graphicTitle = '' ">
+					    	<button class="btn btn-default" type="button" title="Clear text input"  ng-disabled="!graphicTitleEnable">
+					    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					    	</button>
+					    </span>
+					 </div><!-- FIN input-group -->
+				</li>
+
+				<li>
+					<label for="title_color">Title Color:</label>
+						<br>	
+					    <div class="input-group">
+				    	<input type="text" id="title_color" name="title_color" class="form-control"  maxlength="8" placeholder="Title Color" style="text-transform: uppercase; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicTitleColor}} ;"    colorpicker ng-model="graphicTitleColor" ng-disabled="!graphicTitleEnable" >
+					    <span class="input-group-btn"  >
+					    	<button class="btn btn-default" type="button" title="Set the default color" style="text-transform: uppercase; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicTitleColor}} ;" ng-click="graphicTitleColor = '#fff' " ng-disabled="!graphicTitleEnable" >
+					    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					    	</button>
+					    </span>
+					 </div><!-- FIN input-group -->
+				</li>
+
+				<li>
+					<label for="title_text_align">Text Align:</label>
+					<select id="title_text_align" name="title_text_align" class="form-control" ng-model="graphicTitleTextAlign" ng-options="x | uppercase for x in config.text_align" ng-disabled="!graphicTitleEnable" ></select>
+				</li>
+
+				<!--li>
+					<label for="title_text_align">Vertical Align:</label>
+					<select id="title_text_align" name="title_text_align" class="form-control" ng-model="graphicTitleVerticalAlign" ng-options="x | uppercase for x in config.vertical_align" ng-disabled="!graphicTitleEnable" ></select>
+				</li-->
+
+
+				<li>
+					<label for="title_font_weight">Font Weight:</label>
+					<select id="title_font_family" name="title_font_weight" class="form-control" ng-model="graphicTitleFontWeight" ng-options="x | uppercase for x in config.font_weight" ng-disabled="!graphicTitleEnable"></select>
+					
+				</li>
+
+				<li>
+					<label for="title_font_size">Font Size:</label>
+					<br>					
+					<div class="input-group">
+						<input type="number" min="0" max="500" step="10"  id="title_font_size" name="title_font_size" class="form-control" maxlength="5" size="5" ng-model="graphicTitleFontSize" ng-disabled="!graphicTitleEnable">
+						<span class="input-group-addon" id="basic-addon2" title="Default unit of measurement">%</span>
+					</div>
+					
+				</li>
+
+				<li>
+					<label>Floating: </label>
+					<label class="form-control"><input type="checkbox" ng-model="graphicTitleFloating" ng-disabled="!graphicTitleEnable">Enable</label>
+				</li>
+
+				<li>
+					<label for="graphic_text_decoration">Text Decoration:</label>
+					<select id="graphic_text_decoration" name="graphic_text_decoration" class="form-control" ng-model="graphicTitleTextDecoration" ng-options="x | uppercase for x in config.text_decoration" ng-disabled="!graphicTitleEnable"></select>
+				</li>
+
+
+
+				<li>
+					<label for="graphic_text_transform">Text Transform:</label>
+					<select id="text_transform" name="text_transform"  class="form-control" ng-model="graphicTitleTextTransform" ng-options="x | uppercase for x in config.text_transform" ng-disabled="!graphicTitleEnable"></select>
+				</li>
+
+				<li>
+					<label for="letter_spacing">Letter Spacing</label>
+					<br>
+					
+					<div class="input-group">
+						<input type="number" min="0" max="50" step="1" id="letter_spacing" name="letter_spacing" class="form-control" maxlength="2" size="2" ng-model="graphicTitleLetterSpacing" ng-disabled="!graphicTitleEnable">
+						<span class="input-group-addon" id="basic-addon2" title="Default unit of measurement">PX</span>
+					</div>
+
+				</li>
+
+				<li>
+					<label for="word_spacing">Word Spacing:</label>
+					<br>
+					
+					<div class="input-group">
+						<input type="number" min="0" max="50" step="1" id="word_spacing" name="word_spacing" class="form-control" maxlength="2" size="2" ng-model="graphicTitleWordSpacing" ng-disabled="!graphicTitleEnable">
+						<span class="input-group-addon" id="basic-addon2" title="Set the default unit of measurement">PX</span>
+					</div>
+
+				</li>
+
+
+			<!-- FIN TITLE -->
+
+			<!--  -->
+			<!--  -->
+			<!--  -->
+			<!--  -->
+
+
+
+
+<hr>
+
+
+				<!-- -->
+				<!-- -->
+				<!-- INICIO SUBTITLE -->
+				<h2 class="title">Subtitle</h2>
+				
+				<li>
+		<label class="form-control"><input type="checkbox" ng-model="graphicSubtitleEnable">Enable</label>
+				</li>
+
+
+				<li>
+					<label for="graphic_title">Title:</label>
+						<br>	
+				    <div class="input-group" >
+				    	<input type="text" id="graphic_title" name="graphic_title" class="form-control" placeholder="Title" ng-model='graphicSubtitle' ng-disabled="!graphicSubtitleEnable">
+					    <span class="input-group-btn" ng-click="graphicSubtitle = '' ">
+					    	<button class="btn btn-default" type="button" title="Clear text input"  ng-disabled="!graphicSubtitleEnable">
+					    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					    	</button>
+					    </span>
+					 </div><!-- FIN input-group -->
+				</li>
+
+				<li>
+					<label for="title_color">Title Color:</label>
+						<br>	
+					    <div class="input-group">
+				    	<input type="text" id="title_color" name="title_color" class="form-control"  maxlength="8" placeholder="Title Color" style="text-transform: uppercase; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicSubtitleColor}} ;"    colorpicker ng-model="graphicSubtitleColor" ng-disabled="!graphicSubtitleEnable" >
+					    <span class="input-group-btn"  >
+					    	<button class="btn btn-default" type="button" title="Set the default color" style="text-transform: uppercase; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicSubtitleColor}} ;" ng-click="graphicSubtitleColor = '#fff' " ng-disabled="!graphicSubtitleEnable" >
+					    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					    	</button>
+					    </span>
+					 </div><!-- FIN input-group -->
+				</li>
+
+				<li>
+					<label for="title_text_align">Text Align:</label>
+					<select id="title_text_align" name="title_text_align" class="form-control" ng-model="graphicSubtitleTextAlign" ng-options="x | uppercase for x in config.text_align" ng-disabled="!graphicSubtitleEnable" ></select>
+				</li>
+
+				<!--li>
+					<label for="title_text_align">Vertical Align:</label>
+					<select id="title_text_align" name="title_text_align" class="form-control" ng-model="graphicSubtitleVerticalAlign" ng-options="x | uppercase for x in config.vertical_align" ng-disabled="!graphicSubtitleEnable" ></select>
+				</li-->
+
+				<li>
+					<label for="title_font_weight">Font Weight:</label>
+					<select id="title_font_family" name="title_font_weight" class="form-control" ng-model="graphicSubtitleFontWeight" ng-options="x | uppercase for x in config.font_weight" ng-disabled="!graphicSubtitleEnable"></select>
+					
+				</li>
+
+				<li>
+					<label for="title_font_size">Font Size:</label>
+					<br>					
+					<div class="input-group">
+						<input type="number" min="0" max="500" step="10"  id="title_font_size" name="title_font_size" class="form-control" maxlength="5" size="5" ng-model="graphicSubtitleFontSize" ng-disabled="!graphicSubtitleEnable">
+						<span class="input-group-addon" id="basic-addon2" title="Default unit of measurement">%</span>
+					</div>
+					
+				</li>
+
+				<li>
+					<label>Floating:</label>
+					<label class="form-control"><input type="checkbox" ng-model="graphicSubtitleFloating" ng-disabled="!graphicSubtitleEnable">Enable</label>
+				</li>
+
+				<li>
+					<label for="graphic_text_decoration">Text Decoration:</label>
+					<select id="graphic_text_decoration" name="graphic_text_decoration" class="form-control" ng-model="graphicSubtitleTextDecoration" ng-options="x | uppercase for x in config.text_decoration" ng-disabled="!graphicSubtitleEnable"></select>
+				</li>
+
+
+
+				<li>
+					<label for="graphic_text_transform">Text Transform:</label>
+					<select id="text_transform" name="text_transform"  class="form-control" ng-model="graphicSubtitleTextTransform" ng-options="x | uppercase for x in config.text_transform" ng-disabled="!graphicSubtitleEnable"></select>
+				</li>
+
+				<li>
+					<label for="letter_spacing">Letter Spacing</label>
+					<br>
+					
+					<div class="input-group">
+						<input type="number" min="0" max="50" step="1" id="letter_spacing" name="letter_spacing" class="form-control" maxlength="2" size="2" ng-model="graphicSubtitleLetterSpacing" ng-disabled="!graphicSubtitleEnable">
+						<span class="input-group-addon" id="basic-addon2" title="Default unit of measurement">PX</span>
+					</div>
+
+				</li>
+
+				<li>
+					<label for="word_spacing">Word Spacing:</label>
+					<br>
+					
+					<div class="input-group">
+						<input type="number" min="0" max="50" step="1" id="word_spacing" name="word_spacing" class="form-control" maxlength="2" size="2" ng-model="graphicSubtitleWordSpacing" ng-disabled="!graphicSubtitleEnable">
+						<span class="input-group-addon" id="basic-addon2" title="Set the default unit of measurement">PX</span>
+					</div>
+
+				</li>
+
+
+
+
+				<!-- FIN SUBTITLE -->
+				<!-- -->
+				<!-- -->
+				<!-- -->
+
+
+<hr>
+
+
+				<!-- INICIO LEGEND -->
+				<h2 class="title">Legend</h2>
+	
+
+				<li>
+					<label>Background Color</label>
+					<br>	
+					    <div class="input-group">
+				    	<input type="text" id="title_color" name="title_color" class="form-control"  maxlength="8" placeholder="Title Color" style="text-transform: uppercase; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicLegendBackgroundColor}} ;"    colorpicker ng-model="graphicLegendBackgroundColor" >
+					    <span class="input-group-btn"  >
+					    	<button class="btn btn-default" type="button" title="Set the default color" style="text-transform: uppercase; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicLegendBackgroundColor}} ;" ng-click="graphicLegendBackgroundColor = '#fff' ">
+					    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					    	</button>
+					    </span>
+					 </div><!-- FIN input-group -->
+				</li>
+
+
+				<li>
+					<label>Shadow:</label>
+					<label class="form-control"><input type="checkbox" ng-model="graphicLegendShadow" >Enable</label>
+				</li>
+
+
+				<li>
+					<label>Layout</label>
+					<select id="text_align" name="text_align" class="form-control" ng-model="graphicLegendLayout" ng-options="x | uppercase for x in config.layout" ></select>
+				</li>
+
+				<li>
+					<label>Aling</label>
+					<select id="text_align" name="text_align" class="form-control" ng-model="graphicLegendAlign" ng-options="x | uppercase for x in config.text_align" ></select>
+				</li>
+
+				<li>
+					<label>Vertical Aling</label>
+					<select id="text_align" name="text_align" class="form-control" ng-model="graphicLegendVerticalAlign" ng-options="x | uppercase for x in config.vertical_align"  ></select>
+					
+				</li>
+
+				<li>
+					<label>Floating:</label>
+					<label class="form-control"><input type="checkbox" ng-model="graphicLegendFloating">Enable</label>
+				</li>
+
+				<!-- FIN LEGEND -->
+
+
+
+
+
+<hr>
+
+				<h2 class="title">Data</h2>
+<!-- INICIO DATA PROPERTIES-->
+				<li>
+					<label for="graphic_data_source">Data source (Promotion):</label>
+					<select id="graphic_data_source" name="graphic_data_source" class="form-control" ng-model="graphicDataSourcePromotion" ng-options="x | uppercase for x in listadoPromociones"></select>
+				</li>
+				<li>
+					<label for="graphic_x_axis">Chart:</label>
+					<select id="graphic_x_axis" name="graphic_x_axis" class="form-control" ng-model="graphicXAxis" ng-options="x | uppercase for x in listadoApi"></select>
+				</li>
+
+				<li>
+					<label>Select gender to graph:</label>
+					<label class="form-control"><input type="checkbox" name="woman" value="woman" ng-model="graphicCheckWoman">Woman</label>
+				</li>
+
+				<li>
+					<label class="form-control"><input type="checkbox" name="man" value="man" ng-model="graphicCheckMan">Man</label>
+				</li>
+
+
+				<!-- INICIO La vista de configuración -->
+				<div ui-view='configuracion_grafica'></div>
+				<!-- FIN La vista de configuración -->
+
+
+
+				<li>
+					<label for="graphic_graphicType">Graphic:</label>
+					<select id="graphic_graphicType" name="graphic_graphicType" class="form-control" ng-model="graphicType" ng-options="x | uppercase for x in listadoTipoGraficas"></select>
+				</li>
+
+
+			<a style="color:#333" href="#graphiCustomizingSeries" data-toggle="collapse" >
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true">Customizing series</span>
+			</a>
+
+			<div id="graphiCustomizingSeries" class="collapse">
+				<div  ng-repeat=" i in getNumber() track by $index ">
+
+					<!-- INICIO NOMBRE SERIE -->
+					<li>
+						<label for="graphic_title">Name of the serie (#{{$index+1}}):</label>
+							<br>	
+					    <div class="input-group" >
+					    	<input type="text" id="graphic_title" name="graphic_title" class="form-control" placeholder="Title" ng-model='graphicClusterCluterConfig[$index].name' ng-disabled="!graphicTitleEnable" ng-change="EventoChange_ConfiguracionGraficaGCluster()">
+						    <span class="input-group-btn" ng-click="graphicClusterCluterConfig[$index].name = '' ">
+						    	<button class="btn btn-default" type="button" title="Clear text input"  ng-disabled="!graphicTitleEnable">
+						    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						    	</button>
+						    </span>
+						 </div><!-- FIN input-group -->
+					</li>
+					<!-- INICIO NOMBRE SERIE -->
+
+					<!-- INICIO COLOR -->
+					<li>
+						<label for="title_color">Color (#{{$index+1}}):</label>
+							<br>	
+						    <div class="input-group">
+					    	<input type="text" id="title_color" name="title_color" class="form-control"  maxlength="8" placeholder="Title Color" 
+					    	style="text-transform: uppercase; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicClusterCluterConfig[$index].color}} ;"   
+					    	colorpicker 
+					    	ng-model="graphicClusterCluterConfig[$index].color" 
+					    	ng-disabled="!graphicTitleEnable" 
+					    	ng-change="EventoChange_ConfiguracionGraficaGCluster()">
+						    <span class="input-group-btn"  >
+						    	<button class="btn btn-default" type="button" title="Set the default color" style="text-transform: uppercase; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicClusterCluterConfig[$index].color}} ;" ng-click="graphicClusterCluterConfig[$index].color = '#fff' " ng-disabled="!graphicTitleEnable" >
+						    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						    	</button>
+						    </span>
+						 </div><!-- FIN input-group -->
+					</li>
+					<!-- FIN COLOR -->
+				</div>
+			</div>
+
+
+
+
+
+				<!-- FIN DATA PROPERTIES-->
+
+
+
+
+<hr>
+				<h2 class="title">Common Properties</h2>
+				<!-- INICIO ANOTHER PROPERTIES-->
+				<li>
+					<label for="graphic_background_color">Background Color:</label>
+						<br>	
+					    <div class="input-group">
+				    	<input type="text" id="graphic_background_color" name="graphic_background_color" class="form-control"  maxlength="8" placeholder="Title Color" style="text-transform: uppercase; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicBackgroundColor}} ;"    colorpicker ng-model="graphicBackgroundColor" >
+					    <span class="input-group-btn"  >
+					    	<button class="btn btn-default" type="button" title="Set the default color" style="text-transform: uppercase;  border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color:{{graphicBackgroundColor}} ;" ng-click="graphicBackgroundColor = '#000' " >
+					    		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					    	</button>
+					    </span>
+					 </div><!-- FIN input-group -->
+				</li>
+
+
+				<li>
+					<label for="z_index">Layer:</label>
+					<br>
+					
+					<div class="input-group">
+						<input type="number" min="0" max="10" step="1" id="z_Index" name="z_Index" class="form-control" maxlength="2" size="2" ng-model="zIndex">
+						<span class="input-group-addon" id="basic-addon2">Layer</span>
+					</div>
+
+				</li>
+				<!-- FIN ANOTHER PROPERTIES-->
+
+
+
+
+
+
+				
+			</ul>
+
+
+<hr>
+
+
+			<!-- INICIO BOTONES -->
+	  		<ul class="nav nav-pills nav-stacked">
+
+				<li>
+					<button class="btn btn-full-width" ng-click="EventoClick_Guardar()">
+						<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+						<span>Save Change</span>
+					</button>
+				</li>
+
+				<li>
+					<button class="btn btn-full-width" ng-click="EventoClick_CancelarCambio()">
+						<span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span>
+						<span>Cancel Change</span>
+					</button>
+				</li>
+
+				<li>
+					<button class="btn btn-full-width" ng-click="EventoClick_Eliminar()">
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						<span>Remove Control</span>
+					</button>
+				</li>
+			</ul>
+			<!-- FIN BOTONES -->
+
+
+			<!-- INICIO VENTANES EMERGENTES-->
+			<div id="grafica-dialogo-confirmacion-guardar" title="Guardar cambios" >
+			  <p>
+				  <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+				  ¿Seguro que desea guardar los cambios?
+			  </p>
+			</div>
+
+			<div id="grafica-dialogo-confirmacion-cancelar" title="Cancelar cambios" >
+			  <p>
+				  <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+				  ¿Seguro que desea cancelar los cambios?
+			  </p>
+			</div>
+
+			<div id="grafica-dialogo-confirmacion-eliminar" title="Eliminar control" >
+			  <p>
+				  <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+				  ¿Seguro que desea eliminar el control?
+			  </p>
+			</div>
+			<!-- FIN VENTANES EMERGENTES-->
+
+	
+
+
+
+		</div><!-- FIN Panel Body-->
+	</div><!-- FIN CARACTERISTICAS PANEL -->
+
+</div>

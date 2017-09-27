@@ -1,0 +1,32 @@
+<div id="controlador_grafica" ng-controller="controlador_grafica">	
+
+
+	<a style="color:#333" href="#graphiCustomizingTags" data-toggle="collapse" >
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true">Customizing tags to create the clusters</span>
+	</a>
+
+	<li id="graphiCustomizingTags" class="collapse" >
+		<label>Select tags to create the clusters</label>
+		<label class="form-control"><input type="checkbox" name="graphicClusterCheckAge" ng-model="graphicClusterCheckAge">Age</label>
+		<label class="form-control"><input type="checkbox" name="graphicClusterCheckCity" ng-model="graphicClusterCheckCity">City</label>
+		<label class="form-control"><input type="checkbox" name="graphicClusterCheckCountry" ng-model="graphicClusterCheckCountry">Country</label>
+		<label class="form-control"><input type="checkbox" name="graphicClusterCheckGender" ng-model="graphicClusterCheckGender">Gender</label>
+	</li>
+
+
+	<li>
+		<label>Clusters:</label>
+		<div class="input-group">
+			<input type="number"  id="graphicClusterNumberOfClusters" name="graphicClusterNumberOfClusters" class="form-control" min="2" max="10" step="1" maxlength="2" size="2" ng-model="graphicClusterNumberOfClusters">
+			<span class="input-group-addon" id="basic-addon2">Clusters</span>
+		</div>
+	</li>
+
+
+
+
+
+
+
+
+</div>

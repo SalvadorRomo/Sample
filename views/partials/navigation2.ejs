@@ -1,0 +1,45 @@
+
+<div ng-controller="navPageController" ng-cloak>
+  <div class="ui secondary pointing small menu">
+    
+     <% if (me && me.promo) { %>
+        <a id="myDiv" class="item active" ng-show="me.id" href="/promotion" ng-cloak >
+          Promociones
+        </a>
+     <% } %>
+
+        <a  id="myDiv" class="item " ng-show="me.id && !me.promo" href="/promotion" ng-cloak >
+          Promociones
+        </a>
+      
+    <% if (me && me.dash) { %>
+      <a id="myDiv" class="item active" ng-show="me.id" href="/dashboardmanager" ng-cloak>
+        Dashboard
+        </a>
+     <% } %>
+
+      <a  id="myDiv" class="item" ng-show="me.id && !me.dash" href="/dashboardmanager" ng-cloak>
+        Dashboard
+        </a>
+
+       <div  class="right menu" ng-hide="me.id">
+           <div class="item" >
+           <a class="ui active button" href=" /loginP" ><i class="medium sign in icon"> </i>Log In</a>
+        </div>
+       </div>
+        <div class="right menu" ng-show="me.id">
+          
+           <!-- <a class="ui active button" href=" /logout" ><i class="medium sign out icon"> </i>Log Out</a> -->
+
+           <div class="ui dropdown item">
+           <img class="ui avatar image" src="/images/default.png">
+            <span>{{me.email}}</span><i class="dropdown icon"></i>
+             <div class="menu">
+                
+                <a class="item" href=" /logout">Log out</a>
+              </div>
+            </div>
+        
+       </div>
+   </div>
+</di>

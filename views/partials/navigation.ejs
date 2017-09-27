@@ -1,0 +1,52 @@
+<div ng-controller="navPageController"  ng-cloak>
+  <!-- Creates the navbar -->
+  <nav class="navbar navbar-default navbar-inverse">
+    <!-- This creates the mechanism for collapse button -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <!-- This controls the number of lines in the image when the nav collapse -->
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+    <!-- This is the brand on the left-hand side. -->
+    <a class="navbar-brand" href="/">Application</a>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+
+        <!--li><a ng-show="me.id" href="" ng-cloak>Estadisticas</a></li-->
+        <!--li><a ng-show="me.admin" href=""  ng-cloak>User Administration</a></li-->
+
+
+        <li><a ng-show="me.id" href="/promotion" ng-cloak>Promociones</a></li>
+        <li><a ng-show="me.id" href="/dashboardmanager" ng-cloak>Dashboard</a></li>
+        <!--li><a ng-show="me.admin" href="/administration"  ng-cloak>User Administration</a></li-->
+
+      </ul>
+      <!-- The sign-in Form (unauthenticated user state) -->
+      <form ng-hide="me.id" ng-submit="submitLoginForm()" class="navbar-form navbar-right" ng-cloak>
+        <div class="form-group">
+          <input ng-model="loginForm.login" type="text" placeholder="email or username" name="login" class="form-control">
+        </div>
+        <div class="form-group">
+          <input ng-model="loginForm.password" type="password" placeholder="Password" name="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">
+        <span class="fa fa-spinner" style="position: absolute; left: -1000px"></span>
+        <span ng-show="!loginForm.loading" >Sign in</span>
+        <span ng-show="loginForm.loading" class="fa fa-spinner"></span>
+        <span ng-show="loginForm.loading">Signing in...</span>
+        </button>
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      </form>
+      <!--  Gravatar, Email, and logout link (authenticated user state) -->
+      <ul ng-show="me.id" class="nav navbar-nav navbar-right">
+        <li class="activityOverlord active">
+          <a  class="pointer" ng-cloak> {{me.email}}</a>
+        </li>
+        <li>
+          <a href="/logout">sign-out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

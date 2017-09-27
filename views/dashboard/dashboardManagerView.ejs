@@ -1,0 +1,121 @@
+<div ng-controller='controlador_lista_dashboards' ng-init="Constructor()" ng-cloak>
+	<!--Inicio vista barra de acciones -->
+	<div>
+		<div class="panel panel-default">
+  			<div class="panel-heading">
+  				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+  				<span>Options</span>
+  			</div>
+  			<div class="panel-body">
+	
+							<button id="agregar" class="btn btn-defaul" ng-click="EventoClick_Agregar()">
+								<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+								<span>Add</span>
+							</button>
+					
+							<button id="eliminar" class="btn" ng-click="EventoClick_Eliminar()" ng-disabled="registro_seleccionado">
+								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+								<span>Remove</span>
+							</button>
+					
+  							<button id="editar" class="btn" ng-click="EventoClick_Editar()" ng-disabled="registro_seleccionado">
+  								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+  								<span>Edit</span>
+  							</button>
+  						
+							<!--button id="abrir" class="btn" ng-click="EventoClick_Abrir()" ng-disabled="registro_seleccionado">
+								<span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
+								<span>Open</span>
+							</button-->
+							<!--button id="abrir" class="btn" ng-click="EventoClick_SalvarPDF()" ng-disabled="registro_seleccionado">
+								<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+								<span>PDF</span>
+							</button-->
+						
+			</div>
+		</div>
+	</div>
+	<!--Fin vista barra de acciones -->
+
+	<!-- Inicio Lista de Dashboard -->
+	<div class="panel panel-default">
+  			<div class="panel-heading">
+  				<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+  				<span>Dashboards  </span>
+  			</div>
+  			<div class="panel-body" >
+  			<!-- INICIO TABLA -->
+		  	<div ng-show="dashboards.length > 0" class="ng-hide"> 
+				<table class="table table-bordered table-hover table-striped">
+			    	<thead>
+					      <tr>
+					        <td>
+					          Nombre 
+					        </td>
+					        <td>
+					          Descripción 
+					        </td>
+					        <td>
+					          Fecha de la ultima modificación
+					        </td>
+					      </tr>
+				    </thead>
+			    
+				    <tbody>
+				      <tr ng-repeat="dashboard in dashboards" ng-click="EventoClick_SeleccionDashboard(dashboard)">
+				        <td>{{ dashboard.nombre }}</td>
+				        <td>{{ dashboard.descripcion }}</td>
+				        <td>{{ dashboard.updatedAt | date:'dd/MM/yyyy hh:mm a' }}</td>
+				      </tr>
+				    </tbody>
+			  	</table>
+			</div><!-- FIN TABLA -->
+
+			<!-- INICIO SINO HAY DASHBOARD -->
+			<div ng-show="dashboards.length == 0" class="ng-hide"> 
+				<div class="jumbotron">
+				  <h1>There are not  dashboard created!</h1>
+				  <p>Please, click on the next button to add a new one</p>
+				  <p>
+				  		<button id="agregar" class="btn btn-defaul" ng-click="EventoClick_Agregar()">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+							<span>Add</span>
+						</button>
+					</p>
+				</div>
+			</div><!-- FIN SINO HAY DASHBOARD -->
+
+  			</div><!-- FIN PANEL BODY -->
+  		</div><!-- FIN PANEL HEADING -->
+  	</div><!-- FIN PANEL DEFAULT -->
+	
+	<!-- Fin Lista de Dashboard -->
+
+
+
+	<!-- INICIO DIALOGO DE CONFIRMACIÓN -->
+	
+
+	<div id="dashboard_dialogo_confirmacion_eliminar" title="Eliminar dashboard" >
+	  <p>
+		  <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+		  ¿Seguro que desea eliminar el dashboard?
+	  </p>
+	</div>
+
+
+	<div id="dashboard_dialogo_confirmacion_imposible_visualizar" title="Imposible visualizarr dashboard" >
+	  <p>
+		  <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+		  No es posible visualizar el dashboard ya que no tiene contenido que mostar, favor de agregar contenido 
+		  antes de visualizarlo.
+	  </p>
+	</div>
+
+	<!-- FIN DIALOGO DE CONFIRMACIÓN -->
+
+
+
+
+
+</div><!-- FIN CONTROLADOR -->
